@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+## Kotlin in production, 2 years expirience in Juno
+Igor Korotenko, JunoLab
+
+<!--
+Hello! My name is Igor Korotenko, I'm Android engineer at Juno for last 2 years, one of those persons who decided to give Kotlin a try in codebase.
+-->
+
+___
+
+# Juno Rider android app.
+
+* Full-Kotlin(started on **M11**) + RxJava from the start.
+* 2 years.
+* Kotlin 1.2 M1 in production. (and we are ~OK with **M***)
+* 99.9% crash-free
+* 6 developers, 2 QA
+
+<!--
+I'm here for you, guys, this slides are just a vector for what can we talk about, but don't be afraid to stop me at any moment and say "Just show us code and fun things!"
+-->
+___
+
+# Juno Rider android app.
+
+* cloc main/kotlin - **40K**
+* cloc test/kotlin - **35K**
+* cloc androidTest/kotlin - **10k**
+
+---
+
+# Why Kotlin?
+1. Mostry because of Java.
+   - No Java 8, 9 for Android. (at least 2 years ago)
+   - It's very exhaustive, too many words to write from day to day!
+   - Too many ways to shoot your leg.
+2. Safer by default than Java.
+3. It's just beatiful.w
+4. It's utilizes modern programming concepts.
+
+---
+# Reference immutability
+```kotlin
+val a = "Immutable Reference to String"
+a = "Some other string" 
+^ Compile time error!
+
+var b = "Mutable reference to String"
+b = "Another string" 
+    ^ Works just fine!
+```
+
+
+---
+# Core ideas
+
+1. Safety
+  * Immutability
+  * Easy concurrency
+2. Concide code
+3. Modularity
+4. Test-ready
+
+
+
+
+---
+---
+---
+---
+---
+---
+---
+# Destructuring
+
+Actually usefull
+
+```kotlin
+val (first, second) = pair
+val (first, second, third) = triple
+Observable
+    .fromCallable { createPair() }
+    .subscribe { (first, second) ->
+        println("1st is $first, 2nd is $second")
+    }
+```
+
+---
+# Destructuring
+
+Supports `data class` and suggested by `IJ`
+      
+```kotlin
+data class Person(
+    firstName: String,
+    lastName: String
+)
+val (firstName, lastName) = person
+```
+
+---
+# Destructuring
+
+Somebody swaps fields, compiler is happy!
+
+```kotlin
+data class Person(
+    lastName: String,
+    firstName: String
+)
+val (firstName, lastName) = person
+```
+
+**Solution:** We just banned in unless `Pair` or `Triple`. Unless you make separate types for `FirstName` & `LastName`. No joke here :)
+
+---
+
+
+
+                          
+                     
+  
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

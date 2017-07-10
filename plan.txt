@@ -1,0 +1,55 @@
+Презентация про Kotlin
+
+Про что можно рассказать?
+
+- Почему Kotlin
+	Начали с самого старта проекта ниразу не пожалели
+
+	Всякие ништяки
+		делегация
+		concisenes, лямбды (-> rxjava ok)
+		safety, immutability
+		conpile time checks
+		X? easy concurrency (rxjava)
+
+	Адаптация
+		rxjava
+		dagger2 (kapt)
+
+	Какие встречали проблемы?
+		nullability и Gson (reflection)
+		падающие стримы
+
+- Общая архитектура проекта
+	Stack (dependency graph)
+	Для чего это делается?
+	Тестируемость
+	Принципе при принятии тех или иных решений  
+
+- sealed classes в сетевых респонсах
+	Какую проблему решает?
+	Как мы с этим работаем?
+	Показать пример.
+
+- koptional
+	Какую проблему решает
+	Ссылочка на github
+
+- MVVM
+	Как мы готовим его.
+	rx-binding -> rx-view
+	как тестируем (graph as VM dependency)
+
+- Spek
+	Cпецификация
+	DSL
+
+- DSL
+	Spek
+	UI tests
+
+
+- Mainframer
+
+- Bytecode for the win.
+
